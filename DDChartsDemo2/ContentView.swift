@@ -28,6 +28,8 @@ struct ContentView: View {
                         .font(.title)
                         .fontWeight(.bold)
                 }
+                .foregroundStyle(by: .value("Day", "Sunday"))
+                
                 BarMark(
                     x: .value("Day", "Mon"),
                     y: .value("Sales", 250)
@@ -38,6 +40,8 @@ struct ContentView: View {
                         .font(.title)
                         .fontWeight(.bold)
                 }
+                .foregroundStyle(by: .value("Day", "Monday"))
+                
                 BarMark(
                     x: .value("Day", "Tue"),
                     y: .value("Sales", 75.3)
@@ -48,6 +52,8 @@ struct ContentView: View {
                         .font(.title)
                         .fontWeight(.bold)
                 }
+                .foregroundStyle(by: .value("Day", "Tuesday"))
+                
                 BarMark(
                     x: .value("Day", "Wed"),
                     y: .value("Sales", 850)
@@ -58,6 +64,8 @@ struct ContentView: View {
                         .font(.title)
                         .fontWeight(.bold)
                 }
+                .foregroundStyle(by: .value("Day", "Wednesday"))
+                
                 BarMark(
                     x: .value("Day", "Thu"),
                     y: .value("Sales", 450)
@@ -68,13 +76,26 @@ struct ContentView: View {
                         .font(.title)
                         .fontWeight(.bold)
                 }
+                .foregroundStyle(by: .value("Day", "Sunday"))
+                
                 BarMark(
                     x: .value("Day", "Fri"),
-                    y: .value("Sales", 20.23)
+                    y: .value("Sales", 60.23)
                 )
                 .annotation(position: .bottom, alignment: .center) {
                     Circle().stroke(lineWidth: 3)
                 }
+                .foregroundStyle(by: .value("Day", "Monday"))
+                
+                BarMark(
+                    x: .value("Day", "Fri"),
+                    y: .value("Sales", 70)
+                )
+                .annotation(position: .bottom, alignment: .center) {
+                    Circle().stroke(lineWidth: 3)
+                }
+                .foregroundStyle(by: .value("Day", "Wednesday"))
+                
                 BarMark(
                     x: .value("Day", "Sat"),
                     y: .value("Sales", 320)
@@ -83,6 +104,17 @@ struct ContentView: View {
                     Rectangle()
                         .fill(Color.red)
                 }
+                .foregroundStyle(by: .value("Day", "Sat #1"))
+                
+                BarMark(
+                    x: .value("Day", "Sat"),
+                    y: .value("Sales", 400)
+                )
+                .annotation {
+                    Rectangle()
+                        .fill(Color.red)
+                }
+                .foregroundStyle(by: .value("Day", "Sat #2"))
             }
             .chartYScale(domain: min...max)
             .chartXAxis {
@@ -91,6 +123,7 @@ struct ContentView: View {
             .chartYAxis {
                 AxisMarks(position: .leading)
             }
+            .padding()
         }
         .padding()
     }
