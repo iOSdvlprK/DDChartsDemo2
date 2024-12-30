@@ -11,6 +11,7 @@ import Charts
 struct ContentView: View {
     let min = 0.0
     let max = 1000.0
+    @State var isLegendVisible: Bool = false
     
     var body: some View {
         VStack {
@@ -123,6 +124,17 @@ struct ContentView: View {
             .chartYAxis {
                 AxisMarks(position: .leading)
             }
+            .chartLegend(isLegendVisible ? .visible : .hidden)
+//            .chartLegend(position: .leading, alignment: .center, spacing: 50)
+            .padding()
+            
+            Button(action: {
+                withAnimation {
+                    isLegendVisible.toggle()
+                }
+            }, label: {
+                Image(systemName: isLegendVisible ? "eye" : "eye.slash")
+            })
             .padding()
         }
         .padding()
